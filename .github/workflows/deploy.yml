@@ -26,6 +26,6 @@ jobs:
       with:
         version: 'latest'
     - run: |
-        kubectl apply -f deployment.yaml
+        kubectl apply -f deploy.yml
         kubectl apply -f service.yaml
 
