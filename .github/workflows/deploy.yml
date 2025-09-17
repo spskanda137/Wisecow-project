@@ -25,6 +25,8 @@ jobs:
     - uses: azure/setup-kubectl@v3
       with:
         version: 'latest'
+    - name: List files for debugging
+      run: ls -la        
     - run: |
         kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
