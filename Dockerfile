@@ -1,19 +1,20 @@
-# Use official Python 3.9 image
 FROM python:3.9-slim
 
-# Set working directory
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libdbus-1-dev \
+    pkg-config \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
-# Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application
 COPY . .
 
-# Expose the port your app runs on (adjust if needed)
-EXPOSE 5000
+EXPOSE 4499
 
-# Run the app (adjust if your entry point is different)
 CMD ["python", "app.py"]
 
