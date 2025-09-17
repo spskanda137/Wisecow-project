@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: wisecow
-          image: wisecow:latest
+          image: skanda3sharma/wisecow:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 4499
